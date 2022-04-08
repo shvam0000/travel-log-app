@@ -14,7 +14,7 @@ const AddLog = () => {
     <form
       onSubmit={(e) => submitHandler}
       className='bg-blue-400 shadow-lg shadow-blue-400/50 w-1/4 px-10 py-10 pb-14 rounded-md mx-auto text-center flex flex-col items-center'>
-      <h1 className='font-semibold text-xl'>Add a travel log</h1>
+      <h1 className='font-bold text-2xl mt-4 text-white'>Add a Travel Log</h1>
       <input
         className='block my-5 bg-blue-200 focus:bg-blue-300 focus: outline-none rounded-md p-3 text-blue-800 placeholder-slate-800'
         type='text'
