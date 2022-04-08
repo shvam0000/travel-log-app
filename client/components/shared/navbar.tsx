@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Link from 'next/link';
+import { Travel } from '../../public/icons/travel-log';
 
 const NavLink = ({ to, children }) => {
   return (
@@ -53,8 +54,10 @@ const Navbar = ({}) => {
     <nav className='flex filter drop-shadow-md bg-white px-4 py-4 h-20 items-center'>
       <MobileNav open={open} setOpen={setOpen} />
       <div className='w-3/12 flex items-center'>
-        <Link href='/'>
-          <a>LOGO</a>
+        <Link href='/' passHref>
+          <figure className='text-5xl'>
+            <Travel />
+          </figure>
         </Link>
       </div>
       <div className='w-9/12 flex justify-end items-center'>
@@ -81,9 +84,9 @@ const Navbar = ({}) => {
           />
         </div>
 
-        <div className='hidden md:flex'>
-          <NavLink to='/contact'>CONTACT</NavLink>
-          <NavLink to='/about'>ABOUT</NavLink>
+        <div className='hidden md:flex font-semibold text-xl'>
+          <NavLink to='/travel-log'>ADD A LOG</NavLink>
+          <NavLink to='/auth'>Login</NavLink>
         </div>
       </div>
     </nav>
