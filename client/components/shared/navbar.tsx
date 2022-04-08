@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Travel } from '../../public/icons/travel-log';
+import { useRouter } from 'next/router';
 
 const NavLink = ({ to, children }) => {
   return (
@@ -48,7 +49,13 @@ const MobileNav = ({ open, setOpen }) => {
 };
 
 const Navbar = ({}) => {
+  const router = useRouter();
   const [open, setOpen] = useState<boolean>(false);
+
+  const logoutHandler = () => {
+    localStorage.clear();
+    router.replace('/');
+  };
 
   return (
     <nav className='flex filter drop-shadow-md bg-white px-4 py-4 h-20 items-center'>
@@ -85,8 +92,16 @@ const Navbar = ({}) => {
         </div>
 
         <div className='hidden md:flex font-semibold text-xl'>
-          <NavLink to='/travel-log'>ADD A LOG</NavLink>
-          <NavLink to='/auth'>Login</NavLink>
+          {/* <NavLink to='/travel-log'>ADD A LOG</NavLink> */}
+          {router.pathname === '/travel-log' ? (
+            <button
+              onClick={logoutHandler}
+              className='font-bold text-xl  px-4 py-2 rounded-xl bg-slate-400 text-white'>
+              Logout
+            </button>
+          ) : (
+            <NavLink to='/auth'>Login</NavLink>
+          )}
         </div>
       </div>
     </nav>

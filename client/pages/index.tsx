@@ -26,13 +26,13 @@ const Home: NextPage = () => {
         <div className='font-bold text-xl underline'>Team Members</div>
         <ul className='pl-10 list-disc text-lg'>
           <li>Shivam Shekhar (RA1911030010026)</li>
-          <li>Harishankar (RA19110300....)</li>
-          <li>Pratul Anand (RA19110300....)</li>
+          <li>Harishankar (RA1911027010022)</li>
+          <li>Pratul Anand (RA1911027010032)</li>
         </ul>
         <div className='flex justify-center'>
-          <Link href='/travel-log' passHref>
+          <Link href='/auth' passHref>
             <button className='bg-black rounded-lg text-white px-4 p-2 font-medium text-xl'>
-              Add a Log
+              Login
             </button>
           </Link>
         </div>

@@ -1,18 +1,38 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { useRouter } from 'next/router';
 
 const AuthForm = () => {
+  const router = useRouter();
   const [email, setEmail] = useState<string>('');
+  const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [isLogin, setIsLogin] = useState<boolean>(true);
 
   const authSubmitHandler = (e: any) => {
     e.preventDefault();
-    // if (isLogin) {
-    //   url = '';
-    // } else {
-    //   url = '';
-    // }
+    let url: string;
+    if (isLogin) {
+      url = 'http://localhost:5000/auth/register';
+    } else {
+      url = 'http://localhost:5000/auth/login';
+    }
+
+    axios
+      .post(url, {
+        username: username,
+        email: email,
+        password: password,
+      })
+      .then((res) => {
+        localStorage.setItem('username', username);
+        localStorage.setItem('email', email);
+        localStorage.setItem('password', password);
+        router.replace('/travel-log');
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -27,6 +47,20 @@ const AuthForm = () => {
           <input type='hidden' name='remember' value='true' />
           <div className='rounded-md shadow-sm -space-y-px'>
             <div>
+              <label htmlFor='username' className='sr-only'>
+                Username
+              </label>
+              <input
+                type='text'
+                autoComplete='username'
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+                className='relative block w-full px-3 py-2 border border-gray-500 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:z-10 sm:text-sm'
+                placeholder='Username'
+              />
+            </div>
+            <div>
               <label htmlFor='email-address' className='sr-only'>
                 Email address
               </label>
@@ -36,7 +70,7 @@ const AuthForm = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-500 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:z-10 sm:text-sm'
+                className='relative block w-full px-3 py-2 border border-gray-500 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:z-10 sm:text-sm'
                 placeholder='Email address'
               />
             </div>

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { useState } from 'react';
 
 const AddLog = () => {
@@ -5,14 +6,25 @@ const AddLog = () => {
   const [title, setTitle] = useState<string>('');
   const [experience, setExperience] = useState<string>('');
 
-  const submitHandler = (e: HTMLFormElement) => {
+  const submitHandler = (e: any) => {
     e.preventDefault();
-    alert('submitted');
+    axios
+      .post('http://localhost:5000/posts/', {
+        username: name,
+        title: title,
+        desc: experience,
+      })
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
     <form
-      onSubmit={(e) => submitHandler}
+      onSubmit={submitHandler}
       className='bg-blue-400 shadow-lg shadow-blue-400/50 w-1/4 px-10 py-10 pb-14 rounded-md mx-auto text-center flex flex-col items-center'>
       <h1 className='font-bold text-2xl mt-4 text-white'>Add a Travel Log</h1>
       <input
