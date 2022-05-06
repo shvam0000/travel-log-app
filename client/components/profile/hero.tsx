@@ -15,9 +15,9 @@ const ProfileHero = () => {
       <div className="my-5 bg-blue-400 w-60 py-4 px-2 mx-auto rounded-xl text-white font-bold text-xl flex justify-center items-center">
         Profile
       </div>
-      <div className="py-10">
+      {/* <div className="py-10">
         <Subnavbar />
-      </div>
+      </div> */}
       <div className="text-xl font-bold flex justify-center items-center">
         Username - {userName}
       </div>

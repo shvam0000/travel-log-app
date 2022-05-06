@@ -100,9 +100,8 @@ const Navbar = ({}) => {
                 Logout
               </button>
             </div>
-          ) : (
-            <NavLink to="/auth">Login</NavLink>
-          )}
+          ) : // <NavLink to="/auth">Login</NavLink>
+          null}
         </div>
       </div>
     </nav>
