@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
 import { Travel } from '../../public/icons/travel-log';
 import { useRouter } from 'next/router';
@@ -100,8 +100,7 @@ const Navbar = ({}) => {
                 Logout
               </button>
             </div>
-          ) : // <NavLink to="/auth">Login</NavLink>
-          null}
+          ) : null}
         </div>
       </div>
     </nav>

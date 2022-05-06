@@ -1,9 +1,7 @@
 import { MainHeader, AddLog, Card } from './';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Subnavbar } from '../shared';
 import { ProfileHero } from '../profile';
-import Link from 'next/link';
 
 const TravelLogComponent = () => {
   const [cardData, setCardData] = useState<any>([]);

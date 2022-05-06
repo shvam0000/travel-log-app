@@ -1,7 +1,5 @@
 import React from 'react';
 import { Travel } from '../../public/icons/travel-log';
-import { ProfileHero } from '../profile';
-import { TravelLogComponent, AddLog } from '.';
 
 const MainHeader = () => {
   return (
