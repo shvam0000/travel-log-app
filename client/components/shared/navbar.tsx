@@ -92,11 +92,8 @@ const Navbar = ({}) => {
         </div>
 
         <div className="hidden md:flex font-semibold text-xl">
-          {router.pathname === '/travel-log' || '/add-log' || '/profile' ? (
+          {router.pathname === '/travel-log' ? (
             <div className="flex items-center">
-              <NavLink to="/travel-log">View All Logs</NavLink>
-              <NavLink to="/add-log">Log Entry</NavLink>
-              <NavLink to="/profile">Profile</NavLink>
               <button
                 onClick={logoutHandler}
                 className="font-bold text-xl  px-4 py-2 rounded-xl bg-slate-400 text-white">
