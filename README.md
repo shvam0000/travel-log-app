@@ -1,5 +1,7 @@
 # Travel Log App
 
+Travel Log allows users to share their recent trip experiences to entire world for their references. This is a very similar feature to what Trivago has where people can share their itineraries of trips.
+
 ```
 Team members
  - Shivam Shekhar (RA1911030010026)
@@ -25,3 +27,11 @@ Subject: MERN (18CSE302J)
 ### Database
 
 - MongoDB
+
+## Preview
+
+<img src="./readme-assets/1.png">
+<img src="./readme-assets/2.png">
+<img src="./readme-assets/3.png">
+<img src="./readme-assets/4.png">
+<img src="./readme-assets/5.png">
